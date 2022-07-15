@@ -16,4 +16,17 @@
     from voter
     where pollid=#{pollid} and id=#{id}
   </select>
+
+  <!--투표 만들기-->
+  <!--투표 주제-->
+  <insert id="makePoll" parameterType="lotte.com.a.poll.PollDto">
+    insert into poll(id, question, sdate, edate, itemcount, polltotal, regdate)
+    values(#{id}, #{question}, #{sdate}, #{edate}, #{itemcount}, 0, now())
+  </insert>
+
+  <!--투표 보기-->
+  <insert id="makePollSub" parameterType="lotte.com.a.poll.PollSubDto">
+    insert into pollsub(pollid, answer, acount)
+    values ( (select ifnull(max(pollid, 0) from poll), #{answer}, 0))
+  </insert>
 </mapper>
