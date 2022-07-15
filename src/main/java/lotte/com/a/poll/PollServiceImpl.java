@@ -22,7 +22,7 @@ public class PollServiceImpl implements PollService {
         List<PollDto> plist = new ArrayList<>();
 
         for (PollDto poll : list) {
-            int pollid = poll.getPollId();
+            int pollid = poll.getPollid();
 
             // 1 : 투표했음, 0 : 투표안함
             int count = dao.isVoter(new Voter(pollid, id));
@@ -38,5 +38,34 @@ public class PollServiceImpl implements PollService {
 
         return plist;
 
+    }
+
+    @Override
+    public void makePoll(PollBean pbean) {
+
+        // 투표 주제
+        PollDto poll = new PollDto(pbean.getId(), pbean.getQuestion(), pbean.getSdate(), pbean.getEdate(), pbean.getItemcount(), 0);
+
+        dao.makePoll(poll);
+
+        // 투표 보기들
+        String[] answer = pbean.getPollnum();
+
+        for (int i=0;i<pbean.getItemcount();i++) {
+            PollSubDto pollsub = new PollSubDto();
+            pollsub.setAnswer(answer[i]);
+
+            dao.makePollSub(pollsub);
+        }
+    }
+
+    @Override
+    public PollDto getPoll(PollDto poll) {
+        return dao.getPoll(poll);
+    }
+
+    @Override
+    public List<PollSubDto> getPollSubList(PollDto poll) {
+        return dao.getPollSubList(poll);
     }
 }

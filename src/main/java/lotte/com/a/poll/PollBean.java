@@ -2,6 +2,7 @@ package lotte.com.a.poll;
 
 import java.util.Arrays;
 import java.util.Date;
+import lotte.com.a.util.PollUtil;
 
 // 투표를 생성 시에 투표 정보를 전송하는 class
 public class PollBean {
@@ -146,7 +147,7 @@ public class PollBean {
     }
 
     public Date getSdate() {
-        return sdate;
+        return PollUtil.toDate(syear, smonth, sday);
     }
 
     public void setSdate(Date sdate) {
@@ -154,7 +155,7 @@ public class PollBean {
     }
 
     public Date getEdate() {
-        return edate;
+        return PollUtil.toDate(eyear, emonth, eday);
     }
 
     public void setEdate(Date edate) {

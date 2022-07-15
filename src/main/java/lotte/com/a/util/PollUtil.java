@@ -42,4 +42,11 @@ public class PollUtil {
 
         return isEnd(d) ? s1 : s2;
     }
+
+    public static java.sql.Date toDate(int year, int month, int day) {
+        String s = year + "-" + two(month + "") + "-" + two(day + "");
+        java.sql.Date d = java.sql.Date.valueOf(s);
+        return d;
+    }
+
 }

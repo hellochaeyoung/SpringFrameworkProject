@@ -27,6 +27,20 @@
   <!--투표 보기-->
   <insert id="makePollSub" parameterType="lotte.com.a.poll.PollSubDto">
     insert into pollsub(pollid, answer, acount)
-    values ( (select ifnull(max(pollid, 0) from poll), #{answer}, 0))
+    values ( (select ifnull(max(pollid), 0) from poll), #{answer}, 0)
   </insert>
+
+  <!--투표 질의-->
+  <select id="getPoll" parameterType="lotte.com.a.poll.PollDto" resultType="lotte.com.a.poll.PollDto">
+    select pollid, id, question, sdate, edate, itemcount, polltotal, regdate
+    from poll
+    where pollid = #{pollid}
+  </select>
+
+  <!--투표 보기들-->
+  <select id="getPollSubList" parameterType="lotte.com.a.poll.PollDto" resultType="lotte.com.a.poll.PollSubDto">
+    select pollsubid, pollid, answer, acount
+    from pollsub
+    where pollid = #{pollid}
+  </select>
 </mapper>

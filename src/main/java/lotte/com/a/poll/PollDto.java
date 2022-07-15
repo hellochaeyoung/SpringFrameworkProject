@@ -18,7 +18,7 @@ import java.util.Date;
 // 투표 질의(주제를 의미, 주제와 답을 같이 관리할 수 없기 때문에 따로 관리해야 한다.)
 public class PollDto implements Serializable {
 
-    private int pollId; // seq
+    private int pollid; // seq
 
     private String id; // 투표를 만든 사람
 
@@ -38,9 +38,9 @@ public class PollDto implements Serializable {
     public PollDto() {
     }
 
-    public PollDto(int pollId, String id, String question, Date sdate, Date edate, Date regdate,
+    public PollDto(int pollid, String id, String question, Date sdate, Date edate, Date regdate,
         int itemcount, int polltotal, boolean vote) {
-        this.pollId = pollId;
+        this.pollid = pollid;
         this.id = id;
         this.question = question;
         this.sdate = sdate;
@@ -61,12 +61,12 @@ public class PollDto implements Serializable {
         this.polltotal = polltotal;
     }
 
-    public int getPollId() {
-        return pollId;
+    public int getPollid() {
+        return pollid;
     }
 
-    public void setPollId(int pollId) {
-        this.pollId = pollId;
+    public void setPollid(int pollid) {
+        this.pollid = pollid;
     }
 
     public String getId() {
@@ -136,7 +136,7 @@ public class PollDto implements Serializable {
     @Override
     public String toString() {
         return "PollDto{" +
-            "pollId=" + pollId +
+            "pollid=" + pollid +
             ", id='" + id + '\'' +
             ", question='" + question + '\'' +
             ", sdate=" + sdate +

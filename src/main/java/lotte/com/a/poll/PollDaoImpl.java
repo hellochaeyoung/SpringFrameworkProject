@@ -22,4 +22,24 @@ public class PollDaoImpl implements PollDao{
     public int isVoter(Voter voter) {
         return session.selectOne(ns + "isVoter", voter);
     }
+
+    @Override
+    public void makePoll(PollDto poll) {
+        session.insert(ns + "makePoll", poll);
+    }
+
+    @Override
+    public void makePollSub(PollSubDto pollsub) {
+        session.insert(ns + "makePollSub", pollsub);
+    }
+
+    @Override
+    public PollDto getPoll(PollDto poll) {
+        return session.selectOne(ns + "getPoll", poll);
+    }
+
+    @Override
+    public List<PollSubDto> getPollSubList(PollDto poll) {
+        return session.selectList(ns + "getPollSubList", poll);
+    }
 }

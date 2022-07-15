@@ -49,7 +49,7 @@
                     else {
                         %>
                         <td>
-                            <a href="polldetail.do?pollid=<%= poll.getPollId()%>">
+                            <a href="polldetail.do?pollid=<%= poll.getPollid()%>">
                                 <%= poll.getQuestion()%>
                             </a>
                         </td>
@@ -60,7 +60,7 @@
                         <%
                             if(isS || PollUtil.isEnd(poll.getEdate())) {
                                 %>
-                                <a href="pollresult.do?pollid=<%= poll.getPollId()%>">결과</a>
+                                <a href="pollresult.do?pollid=<%= poll.getPollid()%>">결과</a>
                                 <%
                             }else{
                                 %>

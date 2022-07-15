@@ -44,4 +44,29 @@ public class PollController {
 
     }
 
+    @RequestMapping(value = "pollmakeAf.do", method = RequestMethod.GET)
+    public String pollmakeAf(PollBean pollBean, Model model) {
+        logger.info("PollController pollmakeAf() " + new Date());
+        model.addAttribute("doc_title", "투표목록");
+
+        service.makePoll(pollBean);
+
+        return "redirect:/polllist.do";
+
+    }
+
+    @RequestMapping(value = "polldetail.do", method = RequestMethod.GET)
+    public String polldetail(PollDto poll, Model model) {
+
+        // 투표 주제
+        PollDto dto = service.getPoll(poll);
+
+        // 투표 보기
+        List<PollSubDto> list = service.getPollSubList(poll);
+
+        model.addAttribute("poll", dto);
+        model.addAttribute("pollsublist", list);
+
+        return "polldetail.tiles";
+    }
 }
