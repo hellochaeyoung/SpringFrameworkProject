@@ -23,6 +23,11 @@ public class PdsServiceImpl implements PdsService{
 	public int uploadPds(PdsDto dto) {		
 		return dao.uploadPds(dto);
 	}
-		
-	
+
+	@Override
+	public PdsDto pdsDetail(int seq) {
+		return dao.pdsDetail(seq);
+	}
+
+
 }

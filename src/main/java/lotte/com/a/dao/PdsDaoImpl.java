@@ -26,8 +26,13 @@ public class PdsDaoImpl implements PdsDao{
 	public int uploadPds(PdsDto dto) {		
 		return session.insert(ns + "uploadPds", dto);
 	}
-	
-	
+
+	@Override
+	public PdsDto pdsDetail(int seq) {
+		return session.selectOne(ns + "pdsdetail", seq);
+	}
+
+
 }
 
 

@@ -17,6 +17,12 @@
 	values(#{id}, #{title}, #{content}, #{filename}, #{newfilename}, 0, 0, now())
 </insert>
 
+	<select id="pdsdetail" parameterType="Integer" resultType="lotte.com.a.dto.PdsDto">
+		select seq, id, title, content, filename, newfilename, readcount, downcount, regdate
+		from pds
+		where seq = #{seq}
+	</select>
+
 
 </mapper>
 

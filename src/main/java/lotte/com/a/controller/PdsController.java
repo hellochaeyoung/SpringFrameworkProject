@@ -112,6 +112,18 @@ public class PdsController {
 		
 		return "downloadView";
 	}
+
+	@RequestMapping(value = "pdsdetail.do", method = RequestMethod.GET)
+	public String pdsdetail(int seq, Model model) {
+
+		logger.info("PdsController pdsdetail() " + new Date());
+
+		PdsDto dto = service.pdsDetail(seq);
+
+		model.addAttribute("pdsdetail", dto);
+
+		return "pdsdetail.tiles";
+	}
 	
 	
 }

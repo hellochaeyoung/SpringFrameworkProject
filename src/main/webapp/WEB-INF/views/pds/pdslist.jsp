@@ -24,7 +24,7 @@ for(int i = 0;i < list.size(); i++){
 		<th><%=i + 1 %></th>
 		<td><%=pds.getId() %></td>
 		<td>
-			<a href="pdsdetail.jsp?seq=<%=pds.getSeq() %>">
+			<a href="pdsdetail.do?seq=<%=pds.getSeq() %>">
 				<%=pds.getTitle() %>
 			</a>
 		</td>

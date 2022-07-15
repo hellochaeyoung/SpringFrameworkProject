@@ -10,4 +10,6 @@ public interface PdsDao {
 	List<PdsDto> pdslist();
 	
 	int uploadPds(PdsDto dto);
+
+	PdsDto pdsDetail(int seq);
 }

@@ -23,6 +23,10 @@
 	<put-attribute name="main" value="/WEB-INF/views/pds/pdswrite.jsp"/>
 </definition>
 
+	<definition name="pdsdetail.tiles" extends="pdslist.tiles">
+		<put-attribute name="main" value="/WEB-INF/views/pds/pdsdetail.jsp"/>
+	</definition>
+
 	<!--투표-->
 	<definition name="polllist.tiles" extends="main.tiles">
 		<put-attribute name="left_menu" value="/WEB-INF/views/poll/poll_leftmenu.jsp"/>
