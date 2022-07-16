@@ -11,5 +11,7 @@ public interface PollService {
     PollDto getPoll(PollDto poll);
     List<PollSubDto> getPollSubList(PollDto poll);
 
+    void polling(Voter voter);
+
 
 }

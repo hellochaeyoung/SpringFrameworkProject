@@ -43,4 +43,25 @@
     from pollsub
     where pollid = #{pollid}
   </select>
+
+  <!--투표 했을 때-->
+  <!--투표자 추가-->
+  <insert id="pollingVoter" parameterType="lotte.com.a.poll.Voter">
+    insert into voter(pollid, pollsubid, id, regdate)
+    values (#{pollid}, #{pollsubid}, #{id}, now())
+  </insert>
+
+  <!--어느 투표주제(통계)-->
+  <update id="pollingPoll" parameterType="lotte.com.a.poll.Voter">
+    update poll
+    set polltotal=polltotal+1
+    where pollid = #{pollid}
+  </update>
+
+  <!--어느 투표 보기(통계)-->
+  <update id="pollingSub" parameterType="lotte.com.a.poll.Voter">
+    update pollsub
+    set acount = acount + 1
+    where pollsubid = #{pollsubid} and pollid = #{pollid}
+  </update>
 </mapper>

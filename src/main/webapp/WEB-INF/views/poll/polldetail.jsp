@@ -21,7 +21,7 @@
     List<PollSubDto> pollsublist = (List<PollSubDto>) request.getAttribute("pollsublist");
 %>
 
-<form action="polling" method="get">
+<form action="polling.do" method="get">
     <table class="list_table" style="width: 95%">
         <col width="200"><col width="200">
 

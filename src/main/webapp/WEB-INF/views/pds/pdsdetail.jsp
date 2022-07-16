@@ -20,7 +20,7 @@
 
     <tr>
         <th>아이디</th>
-        <td style="text-align: left"; ">
+        <td style="text-align: left";>
             <%= dto.getId()%>
         </td>
     </tr>
@@ -58,7 +58,7 @@
         <td style="text-align: left";>
             <textarea rows="10" cols="50" name="content"><%= dto.getContent()%></textarea>
         </td>
-    </tr>
+    </tr> 1
 
     <tr>
         <th>이미지</th>

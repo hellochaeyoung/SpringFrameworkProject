@@ -58,6 +58,7 @@ public class PollController {
     @RequestMapping(value = "polldetail.do", method = RequestMethod.GET)
     public String polldetail(PollDto poll, Model model) {
 
+        logger.info("PollController polldetail() " + new Date());
         // 투표 주제
         PollDto dto = service.getPoll(poll);
 
@@ -68,5 +69,33 @@ public class PollController {
         model.addAttribute("pollsublist", list);
 
         return "polldetail.tiles";
+    }
+
+    @RequestMapping(value = "polling.do", method = RequestMethod.GET)
+    public String polling(Voter voter) {
+
+        logger.info("PollController polling() " + new Date());
+
+        service.polling(voter);
+
+        return "redirect:/polllist.do";
+    }
+
+    @RequestMapping(value = "pollresult.do", method = RequestMethod.GET)
+    public String pollresult(PollDto poll, Model model) {
+
+        logger.info("PollController pollresult() " + new Date());
+
+        // Poll(투표 주제)
+        PollDto dto = service.getPoll(poll);
+
+        // PollSub(보기들)
+        List<PollSubDto> list = service.getPollSubList(poll);
+
+        model.addAttribute("poll", dto);
+        model.addAttribute("pollsublist", list);
+
+        return "pollresult.tiles";
+
     }
 }
